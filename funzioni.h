@@ -8,4 +8,4 @@ typedef struct s_elemento elemento;
 
 void controlloAllocazione(elemento *p);
 elemento *funzioneInput(elemento *primo);
-elemento *funzioneOutput(elemento *primo);
+void funzioneOutput(elemento *primo);

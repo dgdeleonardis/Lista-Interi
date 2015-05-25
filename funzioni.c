@@ -12,7 +12,7 @@ void controlloAllocazione(elemento *p) {
 elemento *funzioneInput(elemento *primo) {
     //Parte dichiarativa
     elemento *temp;
-    
+
     //Inserimento primo elemento della lista
     primo = (elemento *) malloc(sizeof(elemento));
     controlloAllocazione(primo);
@@ -30,7 +30,7 @@ elemento *funzioneInput(elemento *primo) {
     while((*temp).valore) {
         (*temp).prossimo = primo;
         primo = temp;
-        
+
         temp = (elemento *) malloc(sizeof(elemento));
         controlloAllocazione(temp);
         
@@ -40,7 +40,7 @@ elemento *funzioneInput(elemento *primo) {
     return primo;
 }
 
-elemento *funzioneOutput(elemento *primo) {
+void funzioneOutput(elemento *primo) {
     //Parte Dichiarativa
     elemento *temp, *prossimo;
     //Stampa dei blocchi della lista
