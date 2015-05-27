@@ -24,9 +24,9 @@ elemento *funzioneInput(elemento *primo) {
         controlloAllocazione(temp);
     
         printf("Inserisci un elemento : ");
-        scanf("%d", &((*temp).valore));
+        scanf("%d", &(temp->valore));
         
-        (*scorritore).prossimo = temp;
+        scorritore->prossimo = temp;
         scorritore = temp;
         
         printf("Vuoi inserire un elemento (s/n) : ");
@@ -37,17 +37,26 @@ elemento *funzioneInput(elemento *primo) {
 
 void funzioneOutput(elemento *primo) {
     //Parte Dichiarativa
-    elemento *temp, *prossimo;
+    elemento *temp;
     
     //Stampa dei blocchi della lista
     printf("\n");
     temp = primo;
     
     while(!(temp == NULL)) {
-        printf("Elemento : %d\n", (*temp).valore);
-        
-        prossimo = (*temp).prossimo;
-        free(temp); //Deallocazione della lista
-        temp = prossimo;
+        printf("Elemento : %d\n", temp->valore);
+        temp = temp->prossimo;
+    }
+}
+
+void svuotaLista(elemento *primo) {
+    //Parte Dichiarativa
+    elemento *temp = NULL;
+    
+    //Deallocazione della lista
+    while(primo != NULL) {
+        temp = primo->prossimo;
+        free(primo);
+        primo = temp;
     }
 }
