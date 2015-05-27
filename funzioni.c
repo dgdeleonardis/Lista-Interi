@@ -12,13 +12,13 @@ void controlloAllocazione(elemento *p) {
 
 elemento *funzioneInput(elemento *primo) {
     //Parte dichiarativa
-    elemento *temp;
+    elemento *temp, *scorritore;
     char scelta[2];
     
     //Inserimento degli elementi della lista
     printf("Vuoi inserire un elemento (s/n) : ");
     scanf("%s", scelta);
-    
+    scorritore = primo;
     while(!(strcmp(scelta, "s"))) {
         temp = (elemento *) malloc(sizeof(elemento));
         controlloAllocazione(temp);
@@ -26,8 +26,8 @@ elemento *funzioneInput(elemento *primo) {
         printf("Inserisci un elemento : ");
         scanf("%d", &((*temp).valore));
         
-        (*temp).prossimo = primo;
-        primo = temp;
+        (*scorritore).prossimo = temp;
+        scorritore = temp;
         
         printf("Vuoi inserire un elemento (s/n) : ");
         scanf("%s", scelta);
@@ -38,6 +38,7 @@ elemento *funzioneInput(elemento *primo) {
 void funzioneOutput(elemento *primo) {
     //Parte Dichiarativa
     elemento *temp, *prossimo;
+    
     //Stampa dei blocchi della lista
     printf("\n");
     temp = primo;
