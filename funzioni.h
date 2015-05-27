@@ -9,3 +9,4 @@ typedef struct s_elemento elemento;
 void controlloAllocazione(elemento *p);
 elemento *funzioneInput(elemento *primo);
 void funzioneOutput(elemento *primo);
+void svuotaLista(elemento *primo);

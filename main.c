@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
     elemento *primo = NULL;
     char scelta[2];
    
-    //Inserimento primo elemento della lista
+    //Inserimento del primo elemento della lista
     printf("Vuoi inserire un elemento (s/n) : ");
     scanf("%s", scelta);
     if(!(strcmp(scelta, "s"))) {
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
         controlloAllocazione(primo);
         
         printf("Inserisci un elemento : ");
-        scanf("%d", &((*primo).valore));
+        scanf("%d", &(primo->valore));
         
         //Inserimento lista
         primo = funzioneInput(primo);
@@ -32,6 +32,10 @@ int main(int argc, char** argv) {
     
     //Lettura della lista
     funzioneOutput(primo);
+    
+    //Deallocamento della lista
+    svuotaLista(primo);
+    
     return (EXIT_SUCCESS);
 }
 
